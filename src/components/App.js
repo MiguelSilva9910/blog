@@ -29,6 +29,7 @@ class App extends Component {
   }
   //render post from firebase 
   renderPost() {
+    // array, () => {…}) == array.map(() => {…}
     return _.map(this.state.posts, (post, key) => {
       return (
       <div key={key} className="post-container">
@@ -87,9 +88,7 @@ class App extends Component {
           </div>  
             <button className="btn btn-primary">Post</button>
         </form>
-        <hr />
-        <br />
-        <br />
+        <hr></hr>
         {this.renderPost()}
       </div>
     );
