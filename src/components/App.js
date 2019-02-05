@@ -64,7 +64,6 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <br />
         <form onSubmit={this.onHandleSubmit}>
           <div className="form-group">
             <input
@@ -88,7 +87,7 @@ class App extends Component {
           </div>  
             <button className="btn btn-primary">Post</button>
         </form>
-        <hr></hr>
+        <hr className="hrDiivide" />
         {this.renderPost()}
       </div>
     );
