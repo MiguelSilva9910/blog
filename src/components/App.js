@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { database } from '../firebase';
-import _ from 'lodash';
+// import _ from 'lodash';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import renderHTML from 'react-render-html';
@@ -9,30 +9,31 @@ import renderHTML from 'react-render-html';
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      title: '',
-      body: '',
-      posts: {}
-    };
     // bind
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleSubmit = this.onHandleSubmit.bind(this);
+
+    this.state = {
+      title: '',
+      body: '',
+      posts: []
+    };
   }
 
   //lifecycle method
   componentDidMount(){
     database.on('value', snapshot => {
       this.setState({
-        posts: snapshot.val()
+        posts: Object.entries(snapshot.val()).reduce((accumulator, obj) => ([...accumulator, obj[1]]), [])
       });
     });
   }
+
   //render post from firebase 
   renderPost() {
-    // array, () => {…}) == array.map(() => {…}
-    return _.map(this.state.posts, (post, key) => {
+    return this.state.posts.map((post, index) => {
       return (
-      <div key={key} className="post-container">
+      <div key={index} className="post-container">
         <div className="posts">
           <h2>{post.title}</h2>
           <hr className="hrPosts"/>
