@@ -5,7 +5,7 @@ import { database } from '../firebase';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import renderHTML from 'react-render-html';
-import  App from './App'
+import  App from './App';
 
  export default class Form extends Component{
 

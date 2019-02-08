@@ -5,7 +5,8 @@ import { database } from '../firebase';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import renderHTML from 'react-render-html';
-import Form from './Form'
+import Form from './Form';
+// import Navbar from './Navbar';
 
 class App extends Form {
 
@@ -24,11 +25,10 @@ class App extends Form {
     }); 
   }
 
-
   render() {
     return (
       <div className="container">
-        <Form />
+      
         {this.renderPost()}
       </div>
     );
