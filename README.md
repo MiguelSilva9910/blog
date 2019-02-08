@@ -1,2 +1,2 @@
 ###Blog React
-  This is my first blog with react:
+  This is my first blog with react.
