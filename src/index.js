@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 //import Navbar from "./components/Navbar";
+import Form from './components/Form.js';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
