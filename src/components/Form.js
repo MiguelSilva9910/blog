@@ -5,7 +5,7 @@ import { database } from '../firebase';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import renderHTML from 'react-render-html';
-import App from './App.js'
+import  App from './App'
 
  export default class Form extends Component{
 
@@ -22,12 +22,21 @@ import App from './App.js'
     };
   }
 
-onHandleChange(e) {
+      //lifecycle method
+  componentDidMount(){
+    database.on('value', snapshot => {
+      this.setState({
+        posts: Object.entries(snapshot.val()).reduce((accumulator, obj) => ([...accumulator, obj[1]]), [])
+      });
+    });
+  }
+
+  onHandleChange(e) {
     this.setState({body: e});
     console.log(this.state.body);
   }
 
-  onHandleSubmit(e) {
+    onHandleSubmit(e) {
     e.preventDefault();
     const post = {
       title: this.state.title,
@@ -41,34 +50,9 @@ onHandleChange(e) {
 }
 
 
-  //lifecycle method
-  componentDidMount(){
-    database.on('value', snapshot => {
-      this.setState({
-        posts: Object.entries(snapshot.val()).reduce((accumulator, obj) => ([...accumulator, obj[1]]), [])
-      });
-    });
-  }
-
-  //render post from firebase 
-  renderPost() {
-    return this.state.posts.map((post, index) => {
-      return (
-      <div key={index} className="post-container">
-        <div className="posts">
-          <h2>{post.title}</h2>
-          <hr className="hrPosts"/>
-          <p>{renderHTML(post.body)}</p>
-        </div>
-      </div>
-      )
-    }); 
-  }
-
-
-    render(){
-        return (
-          <div>
+  render(){
+    return (
+      <div>
         <form onSubmit={this.onHandleSubmit}>
           <div className="form-group">
             <input
@@ -93,7 +77,6 @@ onHandleChange(e) {
             <button className="btn btn-primary">Post</button>
         </form>
         <hr className="hrDiivide" />
-        {this.renderPost()}
         </div>
         );
     }
