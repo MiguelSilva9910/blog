@@ -4,8 +4,7 @@ import { database } from '../firebase';
 // import _ from 'lodash';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import renderHTML from 'react-render-html';
-import  App from './App';
+
 
  export default class Form extends Component{
 
@@ -18,6 +17,8 @@ import  App from './App';
     this.state = {
       title: '',
       body: '',
+      data: '',
+      time: '',
       posts: []
     };
   }
@@ -26,7 +27,7 @@ import  App from './App';
   componentDidMount(){
     database.on('value', snapshot => {
       this.setState({
-        posts: Object.entries(snapshot.val()).reduce((accumulator, obj) => ([...accumulator, obj[1]]), [])
+        posts: Object.entries(snapshot.val()).reduce((accumulator, obj) => ([...accumulator, obj[1]]), []).reverse()
       });
     });
   }
@@ -36,15 +37,24 @@ import  App from './App';
     console.log(this.state.body);
   }
 
-    onHandleSubmit(e) {
+  onHandleSubmit(e) {
+    const date = new Date();
+    const months = [1,2,3,4,5,6,7,8,9,10,11,12];
+    const currentDate = date.getDate() +'/'+months[date.getMonth()] + '/'+ date.getFullYear();    // console.log(dateTime);
+    const currentTime = date.getHours()+':'+date.getMinutes();
+
     e.preventDefault();
     const post = {
-      title: this.state.title,
-      body: this.state.body
+      title : this.state.title,
+      body : this.state.body,
+      date : currentDate,
+      time : currentTime
     };
     database.push(post);
     this.setState({
       title: '',
+      date: '',
+      time: '',
       body: ''
     });
 }
@@ -73,7 +83,7 @@ import  App from './App';
               placeholder="Body" 
               onChange={this.onHandleChange} 
             />
-          </div>  
+          </div> 
             <button className="btn btn-primary">Post</button>
         </form>
         <hr className="hrDiivide" />
