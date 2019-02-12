@@ -1,4 +1,6 @@
-
+html {
+    height: 100%;
+}
 .post-container {
     margin-bottom: 45px;
     border-radius: 15px;
@@ -12,7 +14,7 @@
 }
 
 body{
-    margin: 55px;
+    margin: 0px;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cdeb8e+0,a5c956+100 */
     background: #cdeb8e; /* Old browsers */
     background: -moz-radial-gradient(center, ellipse cover, #cdeb8e 0%, #a5c956 100%); /* FF3.6-15 */
@@ -50,6 +52,8 @@ body{
     -moz-box-shadow: 6px 6px 69px 0px rgba(0,0,0,0.33);
     box-shadow: 6px 6px 69px 0px rgba(0,0,0,0.33);
     padding-top: 25px; 
+    margin-bottom: 45px;
+    
     
 }
 .posts{
@@ -88,3 +92,55 @@ body{
 
 .btn {background-image: linear-gradient(to right, #00d2ff 0%, #3a7bd5 51%, #00d2ff 100%)}
 .btn:hover { background-position: right center; }
+
+
+.toolbar {
+    width: 100%;
+    top: 0;
+    left: 0;  
+    margin-bottom: 15px;
+}
+
+.toolbar_navigation {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding: 0 1rem;
+}
+
+.toolbar_navigation a{
+    color: white;
+    text-decoration: none;
+
+}
+
+.toolbar_navigation a:hover,
+.toolbar_navigation a:active {
+    color: #32CD32;
+}
+
+.toolbar_navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.toolbar_navigation li {
+    padding: 0 0.5rem;
+}
+
+.toolbar_logo {
+    margin-left: 1rem;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.toolbar_logo a{
+    color: white;
+    text-decoration: none;
+    font-size: 2rem;
+    /*opacity: 0.5;*/
+}

@@ -3,7 +3,7 @@ import '../App.css';
 import 'react-quill/dist/quill.snow.css';
 import renderHTML from 'react-render-html';
 import Form from './Form';
-// import Navbar from './Navbar';
+import Navbar from './Navbar';
 
 class App extends Form {
 
@@ -22,15 +22,14 @@ class App extends Form {
     }); 
   }
 
+
   render() {
-    // const date = new Date();
-    // const months = [1,2,3,4,5,6,7,8,9,10,11,12];
-    // const dateTime = date.getDate() +'/'+months[date.getMonth()] + '/'+ date.getFullYear()+"  "+date.getHours()+':'+date.getMinutes();
-    // console.log(dateTime);
     return (
-      <div className="container">
-        <Form />
-        {this.renderPost()}
+      <div>
+         <Navbar />
+        <div className="container">
+          {this.renderPost()}
+        </div>
       </div>
     );
   }

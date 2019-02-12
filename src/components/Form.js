@@ -37,7 +37,7 @@ export default class Form extends Component {
   onHandleSubmit(e) {
     const date = new Date();
     const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-    const currentDate = date.getDate() + '/' + months[date.getMonth()] + '/' + date.getFullYear();    // console.log(dateTime);
+    const currentDate = date.getDate() + '/' + months[date.getMonth()] + '/' + date.getFullYear();    
     e.preventDefault();
     const post = {
       title: this.state.title,
@@ -101,8 +101,7 @@ export default class Form extends Component {
           <button
             className="btn btn-primary"
             id="btn"
-            disabled={this.state.isSubmitionAllowed ? null : 'disabled'}
-          >
+            disabled={this.state.isSubmitionAllowed ? null : 'disabled'}>
             Post
             </button>
         </form>

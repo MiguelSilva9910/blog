@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
 import '../App.css';
-import Form from './Form';
 import App from './App';
-import { Router, Switch, Route, Link } from 'react-router-dom';
 
-export default class Navbar extends App {
-    render() {
+class Navbar extends Component { 
+    render () { 
         return (
-            <div> 
-            <Router>     
-                    <header>
-                        <Link to="/Form">Form</Link>
-                        <Link to="/">App</Link>
-                    </header>
-                <nav>
-                    <Switch>
-                            <Route path="/Form" Component={Form} />
-                            <Route exact path="/" Component={App} />
-                    </Switch>
+            <header className="toolbar">
+                <nav className="toolbar_navigation">
+                    <div></div>
+                    <div className="toolbar_logo"><a href="/">THE LOGO</a></div>
+                    <div className="spacer" />
+                    <div className="toolbar_navigation_items">
+                        <ul>
+                            <li><a href="/">Admin</a></li>
+                            <li><a href="/">test</a></li>
+                        </ul>
+                    </div>
                 </nav>
-            </Router>
-            </div>
+            </header>
         );
     }
 }
+
+export default Navbar;

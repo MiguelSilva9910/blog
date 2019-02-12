@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
-// import * as Navbar from "./components/Navbar";
-import Form from './components/Form';
+import Navbar from './components/Navbar';
+//import Form from './components/Form';
 
-
+// ReactDOM.render(<Navbar />, document.getElementById('navbar'));
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
