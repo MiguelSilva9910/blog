@@ -8,7 +8,7 @@ class Navbar extends Component {
             <header className="toolbar">
                 <nav className="toolbar_navigation">
                     <div></div>
-                    <div className="toolbar_logo"><a href="/">THE LOGO</a></div>
+                    <div className="toolbar_logo"><a href="/">BLOG</a></div>
                     <div className="spacer" />
                     <div className="toolbar_navigation_items">
                         <ul>

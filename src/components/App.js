@@ -16,6 +16,8 @@ class App extends Form {
           <h1>{post.title}</h1>
           <hr className="hrPosts"/>
           <p>{renderHTML(post.body)}</p>
+          <hr className="hrdate" />
+            <p className="date">{renderHTML(post.date)}</p>
         </div>
       </div>
       )
@@ -28,6 +30,7 @@ class App extends Form {
       <div>
          <Navbar />
         <div className="container">
+          <Form />
           {this.renderPost()}
         </div>
       </div>

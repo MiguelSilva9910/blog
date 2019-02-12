@@ -25,6 +25,20 @@ body{
 .hrPosts{
     margin-right: 55px;
 }
+
+.hrdate{
+    margin-right: 70px;
+    width: 85px;
+}
+
+.date {
+    color: gray;
+    text-align: right;
+    margin-right: 75px;
+    font-size: 12px;
+    line-height: 0.5;
+}
+
 .hrDiivide{
     height: 30px; 
     border-style: solid; 
